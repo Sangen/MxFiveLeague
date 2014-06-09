@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6162" systemVersion="14A238h" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6160"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MxFiveLeague" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +15,91 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CBG-18-fi8">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlA-wH-BB2">
+                                <rect key="frame" x="328" y="20" width="132" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="5C7-jN-J8v"/>
+                                    <constraint firstAttribute="height" constant="66" id="UQf-bB-Sd0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressNextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qOw-4V-jp5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8W-tk-li2">
+                                <rect key="frame" x="328" y="394" width="132" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="bhG-4T-IAY"/>
+                                    <constraint firstAttribute="width" constant="132" id="gEQ-Ud-46n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="Undo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressUndoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iK7-sJ-ALX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyc-T4-Wne">
+                                <rect key="frame" x="20" y="20" width="132" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="axx-Vt-kSY"/>
+                                    <constraint firstAttribute="height" constant="66" id="tx8-Hv-kg9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressClearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GXv-cw-tac"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GA8-3g-XMm">
+                                <rect key="frame" x="20" y="394" width="132" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="nmi-ip-iyG"/>
+                                    <constraint firstAttribute="width" constant="132" id="ytx-BB-0Ak"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="Redo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressRedoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e3e-qF-0eZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2095725813" green="0.59389282160000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="FlA-wH-BB2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3AU-af-5Gz"/>
+                            <constraint firstItem="cyc-T4-Wne" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3TE-mB-flb"/>
+                            <constraint firstItem="GA8-3g-XMm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="4da-Fh-PmB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CBG-18-fi8" secondAttribute="bottom" id="5eV-EL-G7s"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GA8-3g-XMm" secondAttribute="bottom" constant="20" id="9ZU-cV-UBE"/>
+                            <constraint firstItem="cyc-T4-Wne" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="As7-0x-tTm"/>
+                            <constraint firstAttribute="trailing" secondItem="FlA-wH-BB2" secondAttribute="trailing" constant="20" id="Dzd-kG-RjA"/>
+                            <constraint firstItem="CBG-18-fi8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GVI-71-tiT"/>
+                            <constraint firstAttribute="trailing" secondItem="Y8W-tk-li2" secondAttribute="trailing" constant="20" id="IpK-HO-WXr"/>
+                            <constraint firstItem="CBG-18-fi8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JlW-Pu-QCL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Y8W-tk-li2" secondAttribute="bottom" constant="20" id="QlH-Ss-ail"/>
+                            <constraint firstAttribute="trailing" secondItem="CBG-18-fi8" secondAttribute="trailing" id="bpV-SG-9Ed"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <connections>
+                        <outlet property="canvas" destination="CBG-18-fi8" id="hDx-pg-p5a"/>
+                        <outlet property="clearButton" destination="cyc-T4-Wne" id="VaX-gY-9Pa"/>
+                        <outlet property="nextButton" destination="FlA-wH-BB2" id="mc2-JO-VDn"/>
+                        <outlet property="redoButton" destination="GA8-3g-XMm" id="d9C-0N-Y3d"/>
+                        <outlet property="undoButton" destination="Y8W-tk-li2" id="gs0-Xq-ehz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

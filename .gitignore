@@ -1,0 +1,44 @@
+#--------
+# Logs and databases
+#--------
+*.log
+ 
+#--------
+# OS generated files
+#--------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+#--------
+# Caches
+#--------
+*~
+*.swp
+
+#--------
+# Xcode Workspace
+#--------
+Pods/
+*.xcworkspace
+
+#--------
+# Xcode Project
+#--------
+*.xcodeproj/*
+**/*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!**/*.xcodeproj/project.pbxproj
+!*.xcodeproj/default.*
+!**/*.xcodeproj/default.*
+**/DerivedData
+
+#--------
+# Project AdHoc
+#--------
+build/*
+!build/.gitkeep
