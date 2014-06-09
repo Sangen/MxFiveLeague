@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var redoStack     = UIBezierPath[]()
     var lastDrawImage = UIImage?()
     
+    // TODO: reusable objects
+    var pagePathHistory: UIBezierPath[][] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.undoButton.enabled = false
@@ -125,6 +128,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didPressNextButton(sender : UIButton) {
+        self.pagePathHistory.append(self.undoStack)
+        self.didPressClearButton(self.clearButton)
     }
     
 }
