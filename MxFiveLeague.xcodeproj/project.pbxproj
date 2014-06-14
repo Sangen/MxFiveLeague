@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CBFAF4F194C40860069A7C7 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBFAF4E194C40860069A7C7 /* InfoTableViewController.swift */; };
+		4CBFAF51194C49A80069A7C7 /* HostSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBFAF50194C49A80069A7C7 /* HostSelectionTableViewController.swift */; };
 		B77E55501945FA96000F740D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E554F1945FA96000F740D /* AppDelegate.swift */; };
 		B77E55521945FA96000F740D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E55511945FA96000F740D /* ViewController.swift */; };
 		B77E55551945FA96000F740D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77E55531945FA96000F740D /* Main.storyboard */; };
 		B77E55571945FA96000F740D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77E55561945FA96000F740D /* Images.xcassets */; };
 		B77E55631945FA96000F740D /* MxFiveLeagueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E55621945FA96000F740D /* MxFiveLeagueTests.swift */; };
-		B7A1DD40194BDB86009ACADA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1DD3F194BDB86009ACADA /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CBFAF4E194C40860069A7C7 /* InfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
+		4CBFAF50194C49A80069A7C7 /* HostSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostSelectionTableViewController.swift; sourceTree = "<group>"; };
 		B77E554A1945FA96000F740D /* MxFiveLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MxFiveLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77E554E1945FA96000F740D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B77E554F1945FA96000F740D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +38,6 @@
 		B77E555C1945FA96000F740D /* MxFiveLeagueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MxFiveLeagueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77E55611945FA96000F740D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B77E55621945FA96000F740D /* MxFiveLeagueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MxFiveLeagueTests.swift; sourceTree = "<group>"; };
-		B7A1DD3F194BDB86009ACADA /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +81,11 @@
 			children = (
 				B77E554F1945FA96000F740D /* AppDelegate.swift */,
 				B77E55511945FA96000F740D /* ViewController.swift */,
-				B7A1DD3F194BDB86009ACADA /* InfoViewController.swift */,
+				4CBFAF4E194C40860069A7C7 /* InfoTableViewController.swift */,
 				B77E55531945FA96000F740D /* Main.storyboard */,
 				B77E55561945FA96000F740D /* Images.xcassets */,
 				B77E554D1945FA96000F740D /* Supporting Files */,
+				4CBFAF50194C49A80069A7C7 /* HostSelectionTableViewController.swift */,
 			);
 			path = MxFiveLeague;
 			sourceTree = "<group>";
@@ -211,8 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CBFAF51194C49A80069A7C7 /* HostSelectionTableViewController.swift in Sources */,
+				4CBFAF4F194C40860069A7C7 /* InfoTableViewController.swift in Sources */,
 				B77E55521945FA96000F740D /* ViewController.swift in Sources */,
-				B7A1DD40194BDB86009ACADA /* InfoViewController.swift in Sources */,
 				B77E55501945FA96000F740D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
