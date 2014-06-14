@@ -12,6 +12,7 @@
 		B77E55551945FA96000F740D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77E55531945FA96000F740D /* Main.storyboard */; };
 		B77E55571945FA96000F740D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77E55561945FA96000F740D /* Images.xcassets */; };
 		B77E55631945FA96000F740D /* MxFiveLeagueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E55621945FA96000F740D /* MxFiveLeagueTests.swift */; };
+		B7A1DD40194BDB86009ACADA /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1DD3F194BDB86009ACADA /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		B77E555C1945FA96000F740D /* MxFiveLeagueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MxFiveLeagueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77E55611945FA96000F740D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B77E55621945FA96000F740D /* MxFiveLeagueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MxFiveLeagueTests.swift; sourceTree = "<group>"; };
+		B7A1DD3F194BDB86009ACADA /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				B77E554F1945FA96000F740D /* AppDelegate.swift */,
 				B77E55511945FA96000F740D /* ViewController.swift */,
+				B7A1DD3F194BDB86009ACADA /* InfoViewController.swift */,
 				B77E55531945FA96000F740D /* Main.storyboard */,
 				B77E55561945FA96000F740D /* Images.xcassets */,
 				B77E554D1945FA96000F740D /* Supporting Files */,
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B77E55521945FA96000F740D /* ViewController.swift in Sources */,
+				B7A1DD40194BDB86009ACADA /* InfoViewController.swift in Sources */,
 				B77E55501945FA96000F740D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +407,7 @@
 				B77E55681945FA96000F740D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B77E55691945FA96000F740D /* Build configuration list for PBXNativeTarget "MxFiveLeagueTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +416,7 @@
 				B77E556B1945FA96000F740D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

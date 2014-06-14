@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         // generate hidden drawspace
         UIGraphicsBeginImageContext(self.canvas.frame.size)
         self.lastDrawImage?.drawAtPoint(CGPointZero)
-        UIColor.whiteColor().setStroke()
+        UIColor.lightGrayColor().setStroke()
         path.stroke()
         self.canvas.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -128,9 +128,34 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didPressNextButton(sender : UIButton) {
+        UIImageWriteToSavedPhotosAlbum(self.canvas.image, self, nil, nil)
+        
         self.pagePathHistory.append(self.undoStack)
         self.didPressClearButton(self.clearButton)
     }
     
+//     画像を保存する
+//    func save {
+//    //保存する画像を指定
+//    UIImage *image = [UIImage imageNamed:_imageName];
+//    //画像保存完了時のセレクタ指定
+//    SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
+//    //画像を保存する
+//    UIImageWriteToSavedPhotosAlbum(image, self, selector, NULL);
+//    }
+//    
+//    //画像保存完了時のセレクタ
+//    - (void)onCompleteCapture:(UIImage *)screenImage
+//    didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+//    {
+//    NSString *message = @"画像を保存しました";
+//    if (error) message = @"画像の保存に失敗しました";
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @""
+//    message: message
+//    delegate: nil
+//    cancelButtonTitle: @"OK"
+//    otherButtonTitles: nil];
+//    [alert show];
+//    }
 }
 
