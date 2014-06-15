@@ -117,6 +117,20 @@
                                     <action selector="didPressNextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qOw-4V-jp5"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7x6-QJ-Jcq">
+                                <rect key="frame" x="616" y="38" width="132" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="Gqy-9g-tHi"/>
+                                    <constraint firstAttribute="height" constant="66" id="SCV-ds-1Fz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="終了">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressFinishButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kSq-kR-1Zi"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyc-T4-Wne">
                                 <rect key="frame" x="20" y="38" width="132" height="66"/>
                                 <constraints>
@@ -134,8 +148,8 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93Y-yl-GiJ">
                                 <rect key="frame" x="0.0" y="909" width="768" height="115"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="１人目" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcs-Mo-esk">
-                                        <rect key="frame" x="0.0" y="8" width="768" height="99"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="１文字目" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcs-Mo-esk">
+                                        <rect key="frame" x="0.0" y="8" width="768" height="105"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="88"/>
                                         <color key="textColor" red="0.92032047193877553" green="0.92032047193877553" blue="0.92032047193877553" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -153,10 +167,12 @@
                             <constraint firstItem="93Y-yl-GiJ" firstAttribute="top" secondItem="CBG-18-fi8" secondAttribute="bottom" id="I7e-nD-oQF"/>
                             <constraint firstAttribute="trailing" secondItem="CBG-18-fi8" secondAttribute="trailing" id="K0j-Qk-bkV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="93Y-yl-GiJ" secondAttribute="bottom" id="OJZ-jR-fvz"/>
+                            <constraint firstItem="7x6-QJ-Jcq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="Tr7-uu-d9r"/>
                             <constraint firstItem="bue-OQ-4kq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z0k-wM-dtx"/>
                             <constraint firstItem="93Y-yl-GiJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bOw-g9-E8m"/>
                             <constraint firstItem="FlA-wH-BB2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="d9f-4p-orW"/>
                             <constraint firstAttribute="trailing" secondItem="bue-OQ-4kq" secondAttribute="trailing" id="eB0-2n-JCg"/>
+                            <constraint firstAttribute="trailing" secondItem="7x6-QJ-Jcq" secondAttribute="trailing" constant="20" id="oyq-IR-0tO"/>
                             <constraint firstItem="CBG-18-fi8" firstAttribute="top" secondItem="bue-OQ-4kq" secondAttribute="bottom" id="pNJ-FM-6IO"/>
                             <constraint firstItem="CBG-18-fi8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="peJ-5s-Xbs"/>
                             <constraint firstItem="bue-OQ-4kq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yOZ-dg-WXV"/>
@@ -164,7 +180,9 @@
                     </view>
                     <connections>
                         <outlet property="canvas" destination="CBG-18-fi8" id="hDx-pg-p5a"/>
+                        <outlet property="charNumerLabel" destination="dcs-Mo-esk" id="Ytp-By-kXO"/>
                         <outlet property="clearButton" destination="cyc-T4-Wne" id="VaX-gY-9Pa"/>
+                        <outlet property="finishButton" destination="7x6-QJ-Jcq" id="ZSF-4b-ijG"/>
                         <outlet property="nextButton" destination="FlA-wH-BB2" id="mc2-JO-VDn"/>
                     </connections>
                 </viewController>
