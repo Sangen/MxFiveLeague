@@ -16,6 +16,7 @@
 		B77E55631945FA96000F740D /* MxFiveLeagueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77E55621945FA96000F740D /* MxFiveLeagueTests.swift */; };
 		B7986F7C194DBFE2006358C8 /* MXGroupSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F7B194DBFE2006358C8 /* MXGroupSelectionTableViewController.swift */; };
 		B7986F7E194DCC19006358C8 /* MXUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F7D194DCC19006358C8 /* MXUserDefaults.swift */; };
+		B7986F80194E5779006358C8 /* MXCanvasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F7F194E5779006358C8 /* MXCanvasModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B77E55621945FA96000F740D /* MxFiveLeagueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MxFiveLeagueTests.swift; sourceTree = "<group>"; };
 		B7986F7B194DBFE2006358C8 /* MXGroupSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXGroupSelectionTableViewController.swift; sourceTree = "<group>"; };
 		B7986F7D194DCC19006358C8 /* MXUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXUserDefaults.swift; sourceTree = "<group>"; };
+		B7986F7F194E5779006358C8 /* MXCanvasModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXCanvasModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				4CBFAF50194C49A80069A7C7 /* MXURLSelectionTableViewController.swift */,
 				B7986F7B194DBFE2006358C8 /* MXGroupSelectionTableViewController.swift */,
 				B7986F7D194DCC19006358C8 /* MXUserDefaults.swift */,
+				B7986F7F194E5779006358C8 /* MXCanvasModel.swift */,
 			);
 			path = MxFiveLeague;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				4CBFAF51194C49A80069A7C7 /* MXURLSelectionTableViewController.swift in Sources */,
 				4CBFAF4F194C40860069A7C7 /* InfoTableViewController.swift in Sources */,
 				B77E55521945FA96000F740D /* ViewController.swift in Sources */,
+				B7986F80194E5779006358C8 /* MXCanvasModel.swift in Sources */,
 				B77E55501945FA96000F740D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
