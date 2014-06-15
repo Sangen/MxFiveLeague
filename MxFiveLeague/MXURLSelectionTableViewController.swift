@@ -2,13 +2,13 @@
 //  HostSelectionTableViewController.swift
 //  MxFiveLeague
 //
-//  Created by 河北 薫 on 2014/06/14.
-//  Copyright (c) 2014年 KaoruKawakita. All rights reserved.
+//  Created by Kaoru Kawakita on 2014/06/14.
+//  Copyright (c) 2014 KaoruKawakita. All rights reserved.
 //
 
 import UIKit
 
-class HostSelectionTableViewController: UITableViewController {
+class MXURLSelectionTableViewController: UITableViewController {
 
     var hostHistories = String[]()
     

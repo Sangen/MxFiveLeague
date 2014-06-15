@@ -2,13 +2,16 @@
 //  InfoTableViewController.swift
 //  MxFiveLeague
 //
-//  Created by 河北 薫 on 2014/06/14.
-//  Copyright (c) 2014年 KaoruKawakita. All rights reserved.
+//  Created by Kaoru Kawakita on 2014/06/14.
+//  Copyright (c) 2014 KaoruKawakita. All rights reserved.
 //
 
 import UIKit
 
 class InfoTableViewController: UITableViewController {
+    
+    @IBOutlet var groupNameLabel : UILabel
+    @IBOutlet var baseURLLabel : UILabel
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -27,6 +30,11 @@ class InfoTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.groupNameLabel.text = MXUserDefaults.groupName()
     }
 
     override func didReceiveMemoryWarning() {
