@@ -25,4 +25,15 @@ class MXUserDefaults: NSObject {
         let groupNames = ["A", "B", "C"]
         return groupNames[MXUserDefaults.groupID()]
     }
+    
+    class func baseURLHistory() -> String[] {
+        let baseURLs = NSUserDefaults.standardUserDefaults().arrayForKey("baseURLHistory") as String[]
+        return baseURLs.isEmpty ? String[]() : baseURLs
+    }
+    
+    class func baseURL() -> String {
+        let baseURL = NSUserDefaults.standardUserDefaults().stringForKey("baseURL")
+        return baseURL ? baseURL : "baseurl"
+    }
+    
 }

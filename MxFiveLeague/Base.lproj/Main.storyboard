@@ -5,10 +5,10 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Top View Controller-->
         <scene sceneID="H9v-Hm-VmB">
             <objects>
-                <viewController id="8oN-In-56F" sceneMemberID="viewController">
+                <viewController id="8oN-In-56F" customClass="MXTopViewController" customModule="MxFiveLeague" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DEV-aK-w4a"/>
                         <viewControllerLayoutGuide type="bottom" id="fKR-24-4Xv"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swj-z2-RUR">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swj-z2-RUR">
                                 <rect key="frame" x="0.0" y="20" width="768" height="256"/>
                                 <color key="backgroundColor" red="1" green="0.8826121102784229" blue="0.67682083034393448" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -29,10 +29,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="bqh-Bq-oMC"/>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="startGameSegue" id="bqh-Bq-oMC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1f-jw-UeR">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1f-jw-UeR">
                                 <rect key="frame" x="0.0" y="276" width="768" height="256"/>
                                 <color key="backgroundColor" red="0.70124148026245492" green="1" blue="0.98197286476936163" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -43,6 +43,9 @@
                                 <state key="normal" title="４文字">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="startGameSegue" id="akk-Ub-NTg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Anr-xw-Gxr">
                                 <rect key="frame" x="726" y="982" width="22" height="22"/>
@@ -77,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="-728" y="141"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MxFiveLeague" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MXGameViewController" customModule="MxFiveLeague" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -399,4 +402,7 @@
             <point key="canvasLocation" x="225" y="1310"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="akk-Ub-NTg"/>
+    </inferredMetricsTieBreakers>
 </document>

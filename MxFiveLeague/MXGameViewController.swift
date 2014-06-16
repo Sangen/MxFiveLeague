@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MXGameViewController: UIViewController {
     
     @IBOutlet var canvas : UIImageView
     @IBOutlet var nextButton : UIButton
@@ -95,7 +95,8 @@ class ViewController: UIViewController {
     
     @IBAction func didPressNextButton(sender : UIButton) {
 //        UIImageWriteToSavedPhotosAlbum(self.canvas.image, self, nil, nil)
-        
+
+//        self.uploadCanvasImage()
         self.pagePathHistory.append(self.undoStack)
         self.showAndHideCopyCanvas(self.canvas)
         self.didPressClearButton(self.clearButton)
@@ -104,7 +105,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didPressFinishButton(sender : UIButton) {
+        
+        self.dismissModalViewControllerAnimated(true)
+        
+//        self.uploadCanvasImage()
+        self.pagePathHistory.append(self.undoStack)
         NSLog("Finish")
+    }
+    
+    func uploadCanvasImage() {
+        MXCanvasModel.upload(image: self.canvas.image,
+                         groupName: MXUserDefaults.groupName(),
+                        charNumber: self.charNumber,
+                 completionHandler: { (data, resp, err) in
+                if err {
+                    println(err)
+                }
+            })
     }
     
     func showAndHideCopyCanvas(canvas: UIImageView) {

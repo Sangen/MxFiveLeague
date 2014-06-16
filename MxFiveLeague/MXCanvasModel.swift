@@ -9,18 +9,29 @@
 import UIKit
 
 class MXCanvasModel: NSObject {
-   
-    class func upload(#image: UIImage, groupName: String, charNumber: Int) {
-        let url = NSURL(string: "http://api.tiqav.com/search/random.json")
-        var req = NSMutableURLRequest(URL: url)
-        req.HTTPMethod = "POST"
-        req.HTTPBody   = "HogeFuga".dataUsingEncoding(NSUTF8StringEncoding)
+    
+    class func upload(#image: UIImage,
+                   groupName: String,
+                  charNumber: Int,
+           completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)!) {
+        
+        // TODO:
+        // png to base64
+        // set img param to session
 
-//        let connection: NSURLConnection = NSURLConnection(request: req, delegate: self, startImmediately: false)
-//        
-//        // NSURLConnectionを使ってアクセス
-//        NSURLConnection.sendAsynchronousRequest(Req,
-//            queue: NSOperationQueue.mainQueue(),
-//            completionHandler: self.fetchResponse)
+        let url  = NSURL.URLWithString("\(MXUserDefaults.baseURL())/upload")
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        let task    = session.dataTaskWithURL(url, completionHandler: {
+            (data, resp, err) in
+            completionHandler(data, resp, err)
+            println(NSString(data: data, encoding:NSUTF8StringEncoding))
+        })
+        task.resume()
+    }
+    
+    
+    class func toBase64(#image: UIImage) -> String {
+        let pngData = UIImagePNGRepresentation(image)
+        return pngData.base64Encoding()
     }
 }
