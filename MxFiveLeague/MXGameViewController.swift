@@ -8,14 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MXGameViewController: UIViewController {
     
     @IBOutlet var canvas : UIImageView
     @IBOutlet var nextButton : UIButton
-    @IBOutlet var undoButton : UIButton
-    @IBOutlet var redoButton : UIButton
+    @IBOutlet var finishButton : UIButton
     @IBOutlet var clearButton : UIButton
+    @IBOutlet var charNumerLabel : UILabel
 
+    var charNumber      = 1
+    var maxCharNumber   = 4
+    
     var bezierPath    = UIBezierPath?()
     var undoStack     = UIBezierPath[]()
     var redoStack     = UIBezierPath[]()
@@ -26,8 +29,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.undoButton.enabled = false
-        self.redoButton.enabled = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.updateCharNumber()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,16 +45,14 @@ class ViewController: UIViewController {
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
         let currentPoint = touches.anyObject().locationInView(self.canvas)
         // through if touched point is on any buttons
-        if CGRectContainsPoint(self.undoButton.frame, currentPoint) ||
-           CGRectContainsPoint(self.redoButton.frame, currentPoint) ||
-           CGRectContainsPoint(self.clearButton.frame, currentPoint) ||
+        if CGRectContainsPoint(self.clearButton.frame, currentPoint) ||
            CGRectContainsPoint(self.nextButton.frame, currentPoint) {
             return
         }
         // initialize path
         self.bezierPath = UIBezierPath()
         self.bezierPath!.lineCapStyle = kCGLineCapRound
-        self.bezierPath!.lineWidth = 4
+        self.bezierPath!.lineWidth = 12
         self.bezierPath!.moveToPoint(currentPoint)
     }
     
@@ -69,51 +73,16 @@ class ViewController: UIViewController {
         self.undoStack.append(self.bezierPath!)
         self.redoStack.removeAll(keepCapacity: false)
         self.bezierPath = nil
-        
-        self.undoButton.enabled = true
-        self.redoButton.enabled = false
     }
     
     func drawLine(#path: UIBezierPath) {
         // generate hidden drawspace
         UIGraphicsBeginImageContext(self.canvas.frame.size)
         self.lastDrawImage?.drawAtPoint(CGPointZero)
-        UIColor.lightGrayColor().setStroke()
+        UIColor.whiteColor().setStroke()
         path.stroke()
         self.canvas.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-    }
-
-    @IBAction func didPressUndoButton(sender : UIButton) {
-        // undo -> redo
-        let undoPath: UIBezierPath = self.undoStack[self.undoStack.endIndex - 1]
-        self.undoStack.removeLast()
-        self.redoStack.append(undoPath)
-        
-        // clear canvas
-        self.lastDrawImage = nil
-        self.canvas.image = nil
-        
-        for path in self.undoStack {
-            self.drawLine(path: path)
-            self.lastDrawImage = self.canvas.image
-        }
-        
-        self.undoButton.enabled = !self.undoStack.isEmpty
-        self.redoButton.enabled = true
-    }
-    
-    @IBAction func didPressRedoButton(sender : UIButton) {
-        // undo -> redo
-        let redoPath: UIBezierPath = self.redoStack[self.redoStack.endIndex - 1]
-        self.redoStack.removeLast()
-        self.undoStack.append(redoPath)
-        
-        self.drawLine(path: redoPath)
-        self.lastDrawImage = self.canvas.image
-        
-        self.undoButton.enabled = true
-        self.redoButton.enabled = !self.redoStack.isEmpty
     }
     
     @IBAction func didPressClearButton(sender : UIButton) {
@@ -122,40 +91,57 @@ class ViewController: UIViewController {
         
         self.lastDrawImage = nil
         self.canvas.image = nil
-        
-        self.undoButton.enabled = false
-        self.redoButton.enabled = false
     }
     
     @IBAction func didPressNextButton(sender : UIButton) {
-        UIImageWriteToSavedPhotosAlbum(self.canvas.image, self, nil, nil)
-        
+//        UIImageWriteToSavedPhotosAlbum(self.canvas.image, self, nil, nil)
+
+//        self.uploadCanvasImage()
         self.pagePathHistory.append(self.undoStack)
+        self.showAndHideCopyCanvas(self.canvas)
         self.didPressClearButton(self.clearButton)
+        self.charNumber++
+        self.updateCharNumber()
     }
     
-//     画像を保存する
-//    func save {
-//    //保存する画像を指定
-//    UIImage *image = [UIImage imageNamed:_imageName];
-//    //画像保存完了時のセレクタ指定
-//    SEL selector = @selector(onCompleteCapture:didFinishSavingWithError:contextInfo:);
-//    //画像を保存する
-//    UIImageWriteToSavedPhotosAlbum(image, self, selector, NULL);
-//    }
-//    
-//    //画像保存完了時のセレクタ
-//    - (void)onCompleteCapture:(UIImage *)screenImage
-//    didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-//    {
-//    NSString *message = @"画像を保存しました";
-//    if (error) message = @"画像の保存に失敗しました";
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @""
-//    message: message
-//    delegate: nil
-//    cancelButtonTitle: @"OK"
-//    otherButtonTitles: nil];
-//    [alert show];
-//    }
+    @IBAction func didPressFinishButton(sender : UIButton) {
+        
+        self.dismissModalViewControllerAnimated(true)
+        
+//        self.uploadCanvasImage()
+        self.pagePathHistory.append(self.undoStack)
+        NSLog("Finish")
+    }
+    
+    func uploadCanvasImage() {
+        MXCanvasModel.upload(image: self.canvas.image,
+                         groupName: MXUserDefaults.groupName(),
+                        charNumber: self.charNumber,
+                 completionHandler: { (data, resp, err) in
+                if err {
+                    println(err)
+                }
+            })
+    }
+    
+    func showAndHideCopyCanvas(canvas: UIImageView) {
+        var cloneCanvas = UIImageView(image: canvas.image)
+        self.canvas.addSubview(cloneCanvas)
+        UIView.animateWithDuration(0.3, animations: {() -> Void in
+                cloneCanvas.frame.origin.x = -cloneCanvas.frame.width
+            }, completion: {(Bool) -> Void in
+                cloneCanvas.removeFromSuperview()
+                cloneCanvas.image = nil
+            })
+    }
+    
+    func updateCharNumber() {
+        self.charNumerLabel.text = "\(self.charNumber)文字目"
+        if self.charNumber >= self.maxCharNumber {
+            self.nextButton.hidden = true
+            self.finishButton.hidden = false
+        }
+    }
+    
 }
 
