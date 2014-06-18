@@ -27,13 +27,35 @@ class MXUserDefaults: NSObject {
     }
     
     class func baseURLHistory() -> String[] {
-        let baseURLs = NSUserDefaults.standardUserDefaults().arrayForKey("baseURLHistory") as String[]
-        return baseURLs.isEmpty ? String[]() : baseURLs
+        let baseURLs = NSUserDefaults.standardUserDefaults().arrayForKey("baseURLHistory") as String[]?
+        println(baseURLs)
+        return baseURLs?.count > 0 ? baseURLs! : String[]()
     }
     
     class func baseURL() -> String {
-        let baseURL = NSUserDefaults.standardUserDefaults().stringForKey("baseURL")
-        return baseURL ? baseURL : "baseurl"
+        let baseURLs = MXUserDefaults.baseURLHistory()
+        return baseURLs.isEmpty ? "" : baseURLs[0]
+    }
+    
+    class func addBaseURLToHistroy(url :String) {
+        if url.isEmpty {
+            return
+        }
+        var baseURLs :String[] = MXUserDefaults.baseURLHistory()
+        // remove same url
+        for (index, baseURL: String) in enumerate(baseURLs) {
+            if baseURL == url {
+                baseURLs.removeAtIndex(index)
+                break
+            }
+        }
+        // add new url in front
+        baseURLs.insert(url, atIndex: 0)
+        println(baseURLs)
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(baseURLs, forKey: "baseURLHistory")
+        userDefaults.synchronize()
     }
     
 }
