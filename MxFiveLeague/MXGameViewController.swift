@@ -96,7 +96,7 @@ class MXGameViewController: UIViewController {
     @IBAction func didPressNextButton(sender : UIButton) {
 //        UIImageWriteToSavedPhotosAlbum(self.canvas.image, self, nil, nil)
 
-//        self.uploadCanvasImage()
+        self.uploadCanvasImage()
         self.pagePathHistory.append(self.undoStack)
         self.showAndHideCopyCanvas(self.canvas)
         self.didPressClearButton(self.clearButton)
@@ -105,11 +105,10 @@ class MXGameViewController: UIViewController {
     }
     
     @IBAction func didPressFinishButton(sender : UIButton) {
-        
-        self.dismissModalViewControllerAnimated(true)
-        
-//        self.uploadCanvasImage()
+        self.uploadCanvasImage()
         self.pagePathHistory.append(self.undoStack)
+        self.dismissModalViewControllerAnimated(true)
+
         NSLog("Finish")
     }
     

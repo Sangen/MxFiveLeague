@@ -18,6 +18,7 @@
 		B7986F7E194DCC19006358C8 /* MXUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F7D194DCC19006358C8 /* MXUserDefaults.swift */; };
 		B7986F80194E5779006358C8 /* MXCanvasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F7F194E5779006358C8 /* MXCanvasModel.swift */; };
 		B7986F82194FA831006358C8 /* MXTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F81194FA831006358C8 /* MXTopViewController.swift */; };
+		E9C5001CC0F54A96B614D5E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D1F9952A92494CA7A66CEB /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13D1F9952A92494CA7A66CEB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBFAF4E194C40860069A7C7 /* InfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
 		4CBFAF50194C49A80069A7C7 /* MXURLSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXURLSelectionTableViewController.swift; sourceTree = "<group>"; };
+		971D86E642054E3BB2BAFAD5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B77E554A1945FA96000F740D /* MxFiveLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MxFiveLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77E554E1945FA96000F740D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B77E554F1945FA96000F740D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		B7986F7D194DCC19006358C8 /* MXUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXUserDefaults.swift; sourceTree = "<group>"; };
 		B7986F7F194E5779006358C8 /* MXCanvasModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXCanvasModel.swift; sourceTree = "<group>"; };
 		B7986F81194FA831006358C8 /* MXTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTopViewController.swift; sourceTree = "<group>"; };
+		B7EF921619524086004ED41E /* MxFiveLeague-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MxFiveLeague-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C5001CC0F54A96B614D5E4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,8 @@
 				B77E554C1945FA96000F740D /* MxFiveLeague */,
 				B77E555F1945FA96000F740D /* MxFiveLeagueTests */,
 				B77E554B1945FA96000F740D /* Products */,
+				971D86E642054E3BB2BAFAD5 /* Pods.xcconfig */,
+				F31FEAF54890407EB7450B28 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +105,7 @@
 				B7986F7D194DCC19006358C8 /* MXUserDefaults.swift */,
 				B77E55561945FA96000F740D /* Images.xcassets */,
 				B77E554D1945FA96000F740D /* Supporting Files */,
+				B7EF921619524086004ED41E /* MxFiveLeague-Bridging-Header.h */,
 			);
 			path = MxFiveLeague;
 			sourceTree = "<group>";
@@ -127,6 +135,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F31FEAF54890407EB7450B28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13D1F9952A92494CA7A66CEB /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B77E55661945FA96000F740D /* Build configuration list for PBXNativeTarget "MxFiveLeague" */;
 			buildPhases = (
+				F774903C311C40B8AC9DEA42 /* Check Pods Manifest.lock */,
 				B77E55461945FA96000F740D /* Sources */,
 				B77E55471945FA96000F740D /* Frameworks */,
 				B77E55481945FA96000F740D /* Resources */,
+				9346EE1C4B39497986A9642F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9346EE1C4B39497986A9642F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F774903C311C40B8AC9DEA42 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B77E55461945FA96000F740D /* Sources */ = {
@@ -349,26 +400,33 @@
 		};
 		B77E55671945FA96000F740D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 971D86E642054E3BB2BAFAD5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MxFiveLeague/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MxFiveLeague/MxFiveLeague-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		B77E55681945FA96000F740D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 971D86E642054E3BB2BAFAD5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MxFiveLeague/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MxFiveLeague/MxFiveLeague-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
