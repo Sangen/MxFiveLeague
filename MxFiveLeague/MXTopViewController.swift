@@ -30,10 +30,16 @@ class MXTopViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didPressCharButton(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var vc = storyboard.instantiateViewControllerWithIdentifier("MXGameViewController") as MXGameViewController
+        vc.maxCharNumber = sender.tag
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
 
     // #pragma mark - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if segue?.identifier == "prepareForSegue" {
             var vc = segue!.destinationViewController as MXGameViewController
             vc.maxCharNumber = (sender as UIButton).tag
