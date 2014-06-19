@@ -18,6 +18,12 @@
 		B7986F7E194DCC19006358C8 /* MXUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F7D194DCC19006358C8 /* MXUserDefaults.swift */; };
 		B7986F80194E5779006358C8 /* MXCanvasModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F7F194E5779006358C8 /* MXCanvasModel.swift */; };
 		B7986F82194FA831006358C8 /* MXTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7986F81194FA831006358C8 /* MXTopViewController.swift */; };
+		B7EF922B1952AA25004ED41E /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF92251952AA25004ED41E /* banner.png */; };
+		B7EF922C1952AA25004ED41E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF92261952AA25004ED41E /* bg.png */; };
+		B7EF922D1952AA25004ED41E /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF92271952AA25004ED41E /* button2.png */; };
+		B7EF922E1952AA25004ED41E /* button4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF92281952AA25004ED41E /* button4.png */; };
+		B7EF922F1952AA25004ED41E /* canvas.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF92291952AA25004ED41E /* canvas.png */; };
+		B7EF92301952AA25004ED41E /* fin_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF922A1952AA25004ED41E /* fin_bg.png */; };
 		E9C5001CC0F54A96B614D5E4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D1F9952A92494CA7A66CEB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +56,12 @@
 		B7986F7F194E5779006358C8 /* MXCanvasModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXCanvasModel.swift; sourceTree = "<group>"; };
 		B7986F81194FA831006358C8 /* MXTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTopViewController.swift; sourceTree = "<group>"; };
 		B7EF921619524086004ED41E /* MxFiveLeague-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MxFiveLeague-Bridging-Header.h"; sourceTree = "<group>"; };
+		B7EF92251952AA25004ED41E /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner.png; sourceTree = "<group>"; };
+		B7EF92261952AA25004ED41E /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		B7EF92271952AA25004ED41E /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = "<group>"; };
+		B7EF92281952AA25004ED41E /* button4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button4.png; sourceTree = "<group>"; };
+		B7EF92291952AA25004ED41E /* canvas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canvas.png; sourceTree = "<group>"; };
+		B7EF922A1952AA25004ED41E /* fin_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fin_bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,7 @@
 		B77E554C1945FA96000F740D /* MxFiveLeague */ = {
 			isa = PBXGroup;
 			children = (
+				B7EF92241952AA25004ED41E /* Images */,
 				B77E55531945FA96000F740D /* Main.storyboard */,
 				B77E554F1945FA96000F740D /* AppDelegate.swift */,
 				B7986F81194FA831006358C8 /* MXTopViewController.swift */,
@@ -133,6 +146,19 @@
 				B77E55611945FA96000F740D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7EF92241952AA25004ED41E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B7EF92251952AA25004ED41E /* banner.png */,
+				B7EF92261952AA25004ED41E /* bg.png */,
+				B7EF92271952AA25004ED41E /* button2.png */,
+				B7EF92281952AA25004ED41E /* button4.png */,
+				B7EF92291952AA25004ED41E /* canvas.png */,
+				B7EF922A1952AA25004ED41E /* fin_bg.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		F31FEAF54890407EB7450B28 /* Frameworks */ = {
@@ -226,7 +252,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7EF922F1952AA25004ED41E /* canvas.png in Resources */,
+				B7EF922B1952AA25004ED41E /* banner.png in Resources */,
+				B7EF92301952AA25004ED41E /* fin_bg.png in Resources */,
 				B77E55551945FA96000F740D /* Main.storyboard in Resources */,
+				B7EF922E1952AA25004ED41E /* button4.png in Resources */,
+				B7EF922D1952AA25004ED41E /* button2.png in Resources */,
+				B7EF922C1952AA25004ED41E /* bg.png in Resources */,
 				B77E55571945FA96000F740D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
