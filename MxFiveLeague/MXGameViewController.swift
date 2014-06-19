@@ -20,10 +20,12 @@ class MXGameViewController: UIViewController {
     var charNumber      = 1
     var maxCharNumber   = 4
     
-    var bezierPath    = UIBezierPath?()
-    var undoStack     = UIBezierPath[]()
-    var redoStack     = UIBezierPath[]()
-    var lastDrawImage = UIImage?()
+    var bezierPath     = UIBezierPath?()
+    var undoStack      = UIBezierPath[]()
+    var redoStack      = UIBezierPath[]()
+    var lastTouchPoint = CGPointZero
+    var firstMovedFlg  = false
+    var lastDrawImage  = UIImage?()
     
     // TODO: reusable objects
     var pagePathHistory: UIBezierPath[][] = []
@@ -55,19 +57,33 @@ class MXGameViewController: UIViewController {
         self.bezierPath!.lineCapStyle = kCGLineCapRound
         self.bezierPath!.lineWidth = 12
         self.bezierPath!.moveToPoint(currentPoint)
+        
+        self.firstMovedFlg  = false
+        self.lastTouchPoint = currentPoint
     }
     
     override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
         if !self.bezierPath { return }
         let currentPoint = touches.anyObject().locationInView(self.canvas)
-        self.bezierPath!.addLineToPoint(currentPoint)
+        
+        // skip if first movement
+        if !firstMovedFlg {
+            self.firstMovedFlg  = true;
+            self.lastTouchPoint = currentPoint;
+            return;
+        }
+
+        let middlePoint = CGPoint(x:(self.lastTouchPoint.x + currentPoint.x) / 2,
+                                  y:(self.lastTouchPoint.y + currentPoint.y) / 2)
+        self.bezierPath!.addQuadCurveToPoint(middlePoint, controlPoint: self.lastTouchPoint)
         self.drawLine(path: self.bezierPath!)
+        self.lastTouchPoint = currentPoint;
     }
     
     override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
         if !self.bezierPath { return }
         let currentPoint = touches.anyObject().locationInView(self.canvas)
-        self.bezierPath!.addLineToPoint(currentPoint)
+        self.bezierPath!.addQuadCurveToPoint(currentPoint, controlPoint: self.lastTouchPoint)
         self.drawLine(path: self.bezierPath!)
         // save laste image and undo stack
         self.lastDrawImage = self.canvas.image
@@ -78,7 +94,7 @@ class MXGameViewController: UIViewController {
     
     func drawLine(#path: UIBezierPath) {
         // generate hidden drawspace
-        UIGraphicsBeginImageContext(self.canvas.frame.size)
+        UIGraphicsBeginImageContextWithOptions(self.canvas.frame.size, false, 0.0);
         self.lastDrawImage?.drawAtPoint(CGPointZero)
         UIColor.whiteColor().setStroke()
         path.stroke()
@@ -113,6 +129,14 @@ class MXGameViewController: UIViewController {
     
     @IBAction func didPressCloseGame(sender: UIButton) {
         self.dismissModalViewControllerAnimated(true)
+    }
+    
+    @IBAction func didPressResignButton(sender: UIButton) {
+
+//        var alert = UIAlertController(title: "解答を中止してTOPページに戻りますか", message: "入力されたデータは破棄されます", preferredStyle: .Alert)
+//        alert.addAction(UIAlertAction(title: "いいえ", style: .Default, handler: nil))
+//        alert.addAction(UIAlertAction(title: "はい", style: .Destructive, handler: nil))
+//        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func uploadCanvasImage() {
