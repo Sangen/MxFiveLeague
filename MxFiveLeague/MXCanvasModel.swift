@@ -15,16 +15,14 @@ class MXCanvasModel: NSObject {
                   charNumber: Int,
            completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)!)
     {
-        let url = "http://0.0.0.0:8000/"
-        let params = ["group"   : groupName,
-                      "charNum" : "\(charNumber)",
-                      "image"   : MXCanvasModel.toBase64(image: image)]
+        let url = "answer"
+        let params = ["team_id"       : groupName,
+                      "answer_number" : "\(charNumber)",
+                      "image"         : MXCanvasModel.toBase64(image: image)]
         
-        let manager = AFHTTPSessionManager()
-        manager.responseSerializer = AFHTTPResponseSerializer()  /////////////////////
+        var manager = AFHTTPSessionManager(baseURL: NSURL.URLWithString(MXUserDefaults.baseURL()))
 
-        manager.GET(url,
-//        manager.POST(url,
+        manager.POST(url,
             parameters: params,
             success: { (task: NSURLSessionDataTask!, responseObject:AnyObject!) in
                 println("response: \(responseObject)")
