@@ -15,6 +15,7 @@ class MXGameViewController: UIViewController {
     @IBOutlet var finishButton : UIButton
     @IBOutlet var clearButton : UIButton
     @IBOutlet var charNumerLabel : UILabel
+    @IBOutlet var finishView: UIView
 
     var charNumber      = 1
     var maxCharNumber   = 4
@@ -107,16 +108,20 @@ class MXGameViewController: UIViewController {
     @IBAction func didPressFinishButton(sender : UIButton) {
         self.uploadCanvasImage()
         self.pagePathHistory.append(self.undoStack)
-        self.dismissModalViewControllerAnimated(true)
 
+        self.showFinishPage()
         NSLog("Finish")
+    }
+    
+    @IBAction func didPressCloseGame(sender: UIButton) {
+        self.dismissModalViewControllerAnimated(true)
     }
     
     func uploadCanvasImage() {
         MXCanvasModel.upload(image: self.canvas.image,
                          groupName: MXUserDefaults.groupName(),
                         charNumber: self.charNumber,
-                 completionHandler: { (data, resp, err) in
+                 completionHandler: { (data: AnyObject?, task: NSURLSessionDataTask!, err: NSError?) in
                 if err {
                     println(err)
                 }
@@ -142,5 +147,12 @@ class MXGameViewController: UIViewController {
         }
     }
     
+    func showFinishPage() {
+        self.finishView.frame.origin.y = self.view.frame.size.height
+        self.finishView.hidden = false
+        UIView.animateWithDuration(0.3, animations: {() -> Void in
+            self.finishView.frame.origin.y = 0
+            }, completion: nil)
+    }
 }
 

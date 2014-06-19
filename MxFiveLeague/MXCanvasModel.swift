@@ -13,11 +13,11 @@ class MXCanvasModel: NSObject {
     class func upload(#image: UIImage?,
                    groupName: String,
                   charNumber: Int,
-           completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)!)
+           completionHandler: ((AnyObject?, NSURLSessionDataTask!, NSError?) -> Void)!)
     {
         let url = "answer"
         let params = ["team_id"       : groupName,
-                      "answer_number" : "\(charNumber)",
+                      "image_number" : "\(charNumber)",
                       "image"         : MXCanvasModel.toBase64(image: image)]
         
         var manager = AFHTTPSessionManager(baseURL: NSURL.URLWithString(MXUserDefaults.baseURL()))
@@ -32,6 +32,15 @@ class MXCanvasModel: NSObject {
             })
     }
     
+    class func toBinary(#image: UIImage?) -> String {
+        if !image {
+            return ""
+        }
+        let pngData = UIImagePNGRepresentation(image)
+        // Clashed by format changing as bad access
+        let encodedData = NSString(data: pngData, encoding: NSUTF8StringEncoding) as String?
+        return encodedData!
+    }
     
     class func toBase64(#image: UIImage?) -> String {
         if !image {
@@ -39,6 +48,6 @@ class MXCanvasModel: NSObject {
         }
         let pngData = UIImagePNGRepresentation(image)
         return pngData.base64Encoding()
-//        return pngData.base64EncodedDataWithOptions(options: NSDataBase64EncodingOptions)
     }
+    
 }

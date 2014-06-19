@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8oN-In-56F">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -160,6 +161,39 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wuy-sH-PKb" userLabel="Finish View">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="解答終了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psi-9V-zgs">
+                                        <rect key="frame" x="158" y="378" width="453" height="205"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="88"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="画面をタップするとトップページに戻ります" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IS2-6z-ovZ">
+                                        <rect key="frame" x="126" y="591" width="517" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oc-58-R5X">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressCloseGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WVg-xb-LRr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8Oc-58-R5X" secondAttribute="bottom" id="8Po-cZ-24J"/>
+                                    <constraint firstItem="8Oc-58-R5X" firstAttribute="top" secondItem="wuy-sH-PKb" secondAttribute="top" id="Gmd-qP-bYQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Oc-58-R5X" secondAttribute="trailing" id="faX-xf-FgB"/>
+                                    <constraint firstItem="8Oc-58-R5X" firstAttribute="leading" secondItem="wuy-sH-PKb" secondAttribute="leading" id="zTy-vT-AxT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -188,12 +222,24 @@
                         <outlet property="charNumerLabel" destination="dcs-Mo-esk" id="Ytp-By-kXO"/>
                         <outlet property="clearButton" destination="cyc-T4-Wne" id="VaX-gY-9Pa"/>
                         <outlet property="finishButton" destination="7x6-QJ-Jcq" id="ZSF-4b-ijG"/>
+                        <outlet property="finishView" destination="wuy-sH-PKb" id="4nU-QR-JBW"/>
                         <outlet property="nextButton" destination="FlA-wH-BB2" id="mc2-JO-VDn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="225" y="141"/>
+        </scene>
+        <!--Finish View Controller-->
+        <scene sceneID="ozR-Ar-pnu">
+            <objects>
+                <viewController storyboardIdentifier="MXFinishViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Va0-Kp-0WL" customClass="MXFinishViewController" customModule="MxFiveLeague" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HM3-4j-txP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="141"/>
         </scene>
         <!--Info Table View Controller - info-->
         <scene sceneID="thD-of-xn7">
@@ -342,6 +388,7 @@
                         </connections>
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvK-Pe-mAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
