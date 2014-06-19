@@ -10,6 +10,16 @@ import UIKit
 
 class MXUserDefaults: NSObject {
     
+    class func setupDefaultValues() {
+        let defaultValues = [
+            "groupID"        : "0",
+            "baseURLHistory" : "http://127.0.0.1:3000"
+        ] as NSDictionary
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.registerDefaults(defaultValues)
+        userDefaults.synchronize()
+    }
+    
     class func groupID() -> Int {
         return NSUserDefaults.standardUserDefaults().integerForKey("groupID")
     }

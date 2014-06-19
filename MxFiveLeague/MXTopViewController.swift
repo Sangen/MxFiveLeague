@@ -40,6 +40,7 @@ class MXTopViewController: UIViewController {
     // #pragma mark - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        // No use
         if segue?.identifier == "prepareForSegue" {
             var vc = segue!.destinationViewController as MXGameViewController
             vc.maxCharNumber = (sender as UIButton).tag
